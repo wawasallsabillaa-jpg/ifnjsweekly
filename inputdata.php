@@ -1,3 +1,27 @@
+<?php
+
+require 'fungsi.php';
+
+if(isset($_POST["kirim"]))
+{
+    if(tambahdata($_POST) > 0)
+    {
+        echo "<script>
+                alert('Data Berhasil Ditambahkan!');
+                window.location.href='mahasiswa.php';
+              </script>";
+    }
+    else
+    {
+        echo "<script>
+                alert('Data Gagal Ditambahkan!');
+                window.location.href='mahasiswa.php';
+              </script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +32,7 @@
 </head>
 <body>
          <h1>
-            INPUT NILAI MAHASISWA 
+            INPUT DATA MAHASISWA 
         </h1>
         <hr>
         <table border = "1" cellspacing="0" cellpadding="10">
@@ -28,146 +52,40 @@
             </tr>
         </table>
         <h2> Input Nilai Mahasiswa  </h2>
-        <form>
+        <form action = "" method = "post">
             <table border="0">
                 <tr>
                     <td><label for="nama"> NAMA </label></td>
                     <td>:</td>
-                    <td><input type="text" name="nama" id="nama"> </td>
+                    <td><input type="text" name="nama" id="nama" required></td>
                 </tr>
-                <tr>
-                    <td><label for="nama"> UTS </label></td>
-                    <td>:</td>
-                    <td><input type="text" name="nama" id="nama"> </td>
-                </tr>
-                <tr>
-                    <td><label for="nama"> UAS </label></td>
-                    <td>:</td>
-                    <td> <input type="number" name="uts" id="uts"> </td>
-                </tr>
-                <tr>
-                    <td><label for="nama"> UAS </label></td>
-                    <td>:</td>
-                    <td><input type="number" name="uas" id="uas"> </td>
-                </tr>
-                <tr>
-                    <td><label for="nama"> TUGAS </label></td>
-                    <td>:</td>
-                    <td> <input type="number" name="tugas" id="tugas"> </td>
-                </tr>
-                 <tr>
-                    <td><label for="nama"> FOTO </label></td>
-                    <td>:</td>
-                    <td> <input type="file" name="foto" id="foto"> </td>
-                </tr>
-            </table>
-            <input type="submit" name="submit" value="Kirim Nilai">
-        </form>
-
-        <hr>
-        <h2> TUGAS INSIVIDU </h2>
-        <form>
-            <table border="0">
-                <tr>
-                    <td><label for="nama"> NAMA </label></td>
-                    <td>:</td>
-                    <td><input type="text" name="nama" id="nama"></td>
-                </tr>
-
                 <tr>
                     <td><label for="nama"> NIM </label></td>
                     <td>:</td>
-                    <td><input type="number" name="nama"> </td>
+                    <td><input type="number" name="nim" id="nim" required></td>
                 </tr>
-
                 <tr>
-                    <td><label for="nama"> Password </label></td>
+                    <td><label for="prodi"> Progam Studi </label></td>
                     <td>:</td>
-                    <td><input type="password" name="Password"> </td>
+                    <td> <input type="text" name="jurusan" id="prodi" required></td>
                 </tr>
-
                 <tr>
-                    <td><label for="nama"> Email </label></td>
+                    <td><label for="email"> Email </label></td>
                     <td>:</td>
-                    <td><input type="email" name="Email"> </td>
+                    <td><input type="email" name="email" id="email"></td>
                 </tr>
-
                 <tr>
-                    <td><label for="nama"> No HP </label></td>
+                    <td><label for="nohp"> No. Hp </label></td>
                     <td>:</td>
-                    <td> <input type="tel" name="No HP"> </td>
+                    <td> <input type="number" name="no_hp" id="nohp"></td>
                 </tr>
-
-                <tr>
-                    <td><label for="nama"> Website Pribadi</label></td>
-                    <td>:</td>
-                    <td> <input type="url" name="Website Pribadi"> </td>
-                </tr>
-
-                <tr>
-                    <td><label for="nama"> Tanggal Lahir</label></td>
-                    <td>:</td>
-                    <td> <input type="date" name="Tanggal Lahir"> </td>
-                </tr>
-
-                <tr>
-                    <td><label for="nama"> Warna Favorit</label></td>
-                    <td>:</td>
-                    <td> <input type="color" name="Warna Favorit"> </td>
-                </tr>
-
-                <tr>
-                    <td><label for="nama"> Tingkat Kepuasan </label></td>
-                    <td>:</td>
-                    <td> <input type="range" name="Tingkat Kepuasan"> </td>
-                </tr>
-
-                <tr>
-                    <td><label for="nama"> Jenis Kelamin</label></td>
-                    <td>:</td>
-                    <td> <input type="radio" name="Jenis Kelamin"> </td>
-                </tr>
-
-                <tr>
-                 <td><label>Hobi</label></td>
-                <td>:</td>
-                <td>
-                <input type="checkbox" name="hobi[]" value="memasak" id="memasak">
-                <label for="memasak">Memasak</label>
-
-                <input type="checkbox" name="hobi[]" value="menonton" id="menonton">
-                <label for="menonton">Menonton</label>
-
-                <input type="checkbox" name="hobi[]" value="lari" id="lari">
-                <label for="lari">Lari</label>
-                </td>
-                </tr>
-
-                <tr>
-                    <td><label for="nama"> Upload Foto </label></td>
-                    <td>:</td>
-                    <td> <input type="file" name="Upload Foto"> </td>
-                </tr>
-
-                <tr>
-                    <td>Alamat</td>
-                    <td>:</td>
-                    <td><textarea name="alamat"></textarea></td>
-                </tr>
-                
                  <tr>
-                    <td>Jurusan</td>
+                    <td><label for="foto"> Foto </label></td>
                     <td>:</td>
-                    <td>
-                        <select name="Jurusan">
-                            <option value="TI"> Teknik Informatika</option>
-                            <option value="SI"> Sistem Informatika</option>
-                            <option value="MI"> Manajemen Informatika</option>
-                        </select>
-                    </td>
+                    <td> <input type="text" name="foto" id="foto"></td>
                 </tr>
             </table>
-            <input type="submit" name="submit" value="Kirim">
+            <button type="submit" name="kirim" >Kirim Data </button>
         </form>
 </body>
 </html>
