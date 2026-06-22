@@ -45,27 +45,29 @@
             <th >Aksi</th>
             <!--th> Baris 1, Kolom 1</th>-->
         </tr>
-<?php
-$no = 1;
-foreach($mahasiswa as $mhs)
-{
-?>
+    <?php
+    $no = 1;
+    foreach($mahasiswa as $mhs)
+    {
+    ?>
 <tr>
-    <td align="center"><?= $mhs[0] ?></td>
+    <td align="center"><?= $no ?></td>
     <td><?= $mhs[1] ?></td>
     <td align="center"><?= $mhs[2] ?></td>
     <td align="center"><?= $mhs[3] ?></td>
     <td align="center"><?= $mhs[4] ?></td>
     <td><?= $mhs[5] ?></td>
-    <td><img src="assets/image/<?= $mhs[6] ?>" width="100px"></td>
+    <td><img src="assets/image/<?= $mhs[6] ?>" width="100px" height="70px"/></td>
     <td>
-        <a href="ubahdata.php"><button>Edit</button></a>
-        <a href="hapusdata.php"><button>Hapus</button></a>
+        <a href="ubahdata.php?id=<?= $mhs[0] ?>"><button>Edit</button></a>
+        <a href="hapusdata.php?id=<?= $mhs[0] ?>" onclick="return confrim('yakin?!')" ><button>Hapus</button></a>
     </td>
 </tr>
-<?php
-}
-?>
+    <?php
+    $no++;
+
+    }
+    ?>
 </table>
         
       

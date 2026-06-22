@@ -4,7 +4,8 @@ require 'fungsi.php';
 
 if(isset($_POST["kirim"]))
 {
-    if(tambahdata($_POST) > 0)
+
+    if(tambahdata($_POST, $_FILES["foto"]) > 0)
     {
         echo "<script>
                 alert('Data Berhasil Ditambahkan!');
@@ -15,7 +16,7 @@ if(isset($_POST["kirim"]))
     {
         echo "<script>
                 alert('Data Gagal Ditambahkan!');
-                window.location.href='mahasiswa.php';
+                
               </script>";
     }
 }
@@ -35,7 +36,7 @@ if(isset($_POST["kirim"]))
             INPUT DATA MAHASISWA 
         </h1>
         <hr>
-        <table border = "1" cellspacing="0" cellpadding="10">
+        <table border = "1" cellspacing="0" cellpadding="10px">
             <tr>
                 <th>
                     <a href="index.php">Home</a>
@@ -51,9 +52,9 @@ if(isset($_POST["kirim"]))
                 </th>
             </tr>
         </table>
-        <h2> Input Nilai Mahasiswa  </h2>
-        <form action = "" method = "post">
-            <table border="0">
+        <h2> Input Data Mahasiswa  </h2>
+        <form action = "" method = "post" enctype="multipart/form-data">
+        <table border = "1" cellspacing="5px">
                 <tr>
                     <td><label for="nama"> NAMA </label></td>
                     <td>:</td>
@@ -82,7 +83,7 @@ if(isset($_POST["kirim"]))
                  <tr>
                     <td><label for="foto"> Foto </label></td>
                     <td>:</td>
-                    <td> <input type="text" name="foto" id="foto"></td>
+                    <td> <input type="file" name="foto" id="foto"></td>
                 </tr>
             </table>
             <button type="submit" name="kirim" >Kirim Data </button>
