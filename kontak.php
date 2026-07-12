@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-             KONTAK PRIBADI JUAK
+             KONTAK PRIBADI WAWA
         </title>
         <link rel="stylesheet" href="style.css">
     </head>

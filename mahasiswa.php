@@ -16,7 +16,7 @@
 </head>
 <body>
     <h1>
-        WEB INFORMATIKA WAWA SALSABILA
+        WEB INFORMATIKA WAWA 
     </h1>
     <hr>
     <table border = "1" cellspacing="0" cellpadding="10">
